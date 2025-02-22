@@ -2,16 +2,14 @@
 Just to make my life simple. I want to avoid re-spending time on setting up peripherals
 
 ## Table of Contents
-- [RTC setup time function](#RTC)
-- [STM32 ADC Configuration](#stm32-adc-configuration)
+- [RTC](#RTC)
+  -[Private typedef](#Private-typedef)
+  -[Encapulating function](#Encapulating-function)
+- [STM32 ADC Configuration](#ADC-w/DMA-and-Continuous-Mode)
   - [ADC Configuration](#adc-configuration)
-  - [DMA Configuration](#dma-configuration)
-- [Code Implementation](#code-implementation)
-  - [ADC and DMA Initialization](#adc-and-dma-initialization)
-  - [DMA Initialization](#dma-initialization)
-  - [Starting ADC with DMA](#starting-adc-with-dma)
-  - [DMA Interrupt Handler (if needed)](#dma-interrupt-handler-if-needed)
-- [Verification](#verification)
+  - [Start ADC w/DMA](#Starting-ADC-with-DMA)
+  - [IRQ Configuration](#DMA-Interrupt-Handler-(if-needed)-in-it.c)
+- [USB-HID Gamepad](#USB-HID-Gamepad)
 - [License](#License)
 - [Author](#author)
 
