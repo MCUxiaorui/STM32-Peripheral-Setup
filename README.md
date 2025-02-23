@@ -9,6 +9,7 @@ Just to make my life simple. I want to avoid re-spending time on setting up peri
   - [ADC Configuration](#adc-configuration)
   - [Start ADC w/DMA](#Starting-ADC-with-DMA)
   - [IRQ Configuration](#DMA-Interrupt-Handler-(if-needed)-in-it.c)
+- [TIMER](#Timer-interrupts)
 - [USB-HID Gamepad](#USB-HID-Gamepad)
 - [License](#License)
 - [Author](#author)
@@ -68,6 +69,35 @@ void DMA1_Channel1_IRQHandler(void)
   /* USER CODE BEGIN DMA1_Channel1_IRQn 1 */
 
   /* USER CODE END DMA1_Channel1_IRQn 1 */
+}
+```
+
+## Timer interrupts
+### Settings
+- **Clock Source** (e.g., `Internal Clock`)
+- **Prescaler** (`As required`)
+- **Counter Period** (`As required`)
+- **NVIC Enable interrupts** (e.g., `Update Interrupt`)
+### Start timer after peripheral configuration
+```c
+  if (HAL_TIM_Base_Start_IT(&htim1) != HAL_OK)
+  {
+    /* Starting Error */
+    Error_Handler();
+  }
+```
+### Then implement IRQHandler function
+`For example`
+```c
+void TIM1_UP_IRQHandler(void)
+{
+  /* USER CODE BEGIN TIM1_UP_IRQn 0 */
+  HAL_GPIO_TogglePin(GPIOC, GPIO_PIN_13);
+  /* USER CODE END TIM1_UP_IRQn 0 */
+  HAL_TIM_IRQHandler(&htim1);
+  /* USER CODE BEGIN TIM1_UP_IRQn 1 */
+
+  /* USER CODE END TIM1_UP_IRQn 1 */
 }
 ```
 
