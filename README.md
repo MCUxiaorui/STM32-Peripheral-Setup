@@ -80,7 +80,7 @@ void DMA1_Channel1_IRQHandler(void)
 - **NVIC Enable interrupts** (e.g., `Update Interrupt`)
 ### Start timer after peripheral configuration
 ```c
-  if (HAL_TIM_Base_Start_IT(&htim1) != HAL_OK)
+  if (HAL_TIM_Base_Start_IT(TIM_HandleTypeDef *htim) != HAL_OK)
   {
     /* Starting Error */
     Error_Handler();
