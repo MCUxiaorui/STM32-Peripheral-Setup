@@ -5,12 +5,14 @@ Just to make my life simple. I want to avoid re-spending time on setting up peri
 - [RTC](#RTC)
   - [Private typedef](#Private-typedef)
   - [Encapulating function](#Encapulating-function)
-- [STM32 ADC Configuration](#adc-wdma-and-continuous-mode)
+- [ADC](#adc-wdma-and-continuous-mode)
   - [ADC Configuration](#adc-configuration)
   - [Start ADC w/DMA](#Starting-ADC-with-DMA)
   - [IRQ Configuration](#DMA-Interrupt-Handler-(if-needed)-in-it.c)
 - [TIMER](#Timer-interrupts)
-- [USB-HID Gamepad](#USB-HID-Gamepad)
+- [USB](#USB)
+  - [HID Gamepad](#HID-Gamepad)
+  - [Virtual COM Port (VCP)](#Virtual-COM-Port-(VCP))
 - [License](#License)
 - [Author](#author)
 
@@ -101,12 +103,26 @@ void TIM1_UP_IRQHandler(void)
 }
 ```
 
-## USB-HID Gamepad
-### placeholder
+## USB ``Heavy on Flash Usage``
+### HID Gamepad
 ```c
 usb_buffer.Xaxis = (uint16_t)(usb_buffer.Xaxis & 0x0FFF);
 USBD_HID_SendReport(&hUsbDeviceFS, (uint8_t *) &usb_buffer, 20);
 ```
+### Virtual COM Port (VCP)
+- **Setup Buffer first**
+```c
+char TxBuf[64];
+char RxBuf[64];
+```
+- **Use following function directly**
+```c
+CDC_Transmit_FS(uint8_t* Buf, uint16_t Len);
+CDC_Receive_FS(uint8_t* Buf, uint32_t *Len);
+```
+## Interesting relationship of Vtemp vs Vref From ADC (``No correlation``)
+![image](https://github.com/user-attachments/assets/aebc4160-8b11-4cf0-a8c9-44c2f947a732)
+
 ---
 ### License
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
