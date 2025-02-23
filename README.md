@@ -54,7 +54,7 @@ void RTC_Update(uint8_t hour, uint8_t minute, uint8_t second, uint8_t weekDay, u
 
 ### Starting ADC with DMA
 ```c
-    HAL_ADC_Start_DMA(ADC_HandleTypeDef* hadc, uint32_t* pData, uint32_t Length);
+HAL_ADC_Start_DMA(ADC_HandleTypeDef* hadc, uint32_t* pData, uint32_t Length);
 ```
 
 ### DMA Interrupt Handler (if needed) in `it.c`
