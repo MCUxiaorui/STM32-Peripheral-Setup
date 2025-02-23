@@ -45,7 +45,6 @@ void RTC_Update(uint8_t hour, uint8_t minute, uint8_t second, uint8_t weekDay, u
 ## ADC w/DMA and Continuous Mode 
 
 ### ADC Configuration
-- **Enable ADC peripheral** in **CubeIDE**.
 - **Select the desired ADC instance** (e.g., `ADC1`).
 - **Enable Continuous Conversion Mode**.
 - **Enable DMA Peripheral to Memory** (`Half Word`).
@@ -58,7 +57,7 @@ void RTC_Update(uint8_t hour, uint8_t minute, uint8_t second, uint8_t weekDay, u
     HAL_ADC_Start_DMA(ADC_HandleTypeDef* hadc, uint32_t* pData, uint32_t Length);
 ```
 
-### DMA Interrupt Handler (if needed) in it.c
+### DMA Interrupt Handler (if needed) in `it.c`
 ```c
 void DMA1_Channel1_IRQHandler(void)
 {
