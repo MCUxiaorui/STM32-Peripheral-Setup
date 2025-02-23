@@ -3,8 +3,8 @@ Just to make my life simple. I want to avoid re-spending time on setting up peri
 
 ## Table of Contents
 - [RTC](#RTC)
-  -[Private typedef](#Private-typedef)
-  -[Encapulating function](#Encapulating-function)
+  - [Private typedef](#Private-typedef)
+  - [Encapulating function](#Encapulating-function)
 - [STM32 ADC Configuration](#adc-wdma-and-continuous-mode)
   - [ADC Configuration](#adc-configuration)
   - [Start ADC w/DMA](#Starting-ADC-with-DMA)
