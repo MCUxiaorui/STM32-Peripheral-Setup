@@ -16,6 +16,8 @@ Just to make my life simple. I want to avoid re-spending time on setting up peri
 - [License](#License)
 - [Author](#author)
 
+## GPIO_C13 seems to have some weird problem after initialize RTC (F103 Series)
+
 ## RTC
 ### Private typedef
 ```c
